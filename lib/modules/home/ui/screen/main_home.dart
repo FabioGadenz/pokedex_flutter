@@ -17,7 +17,7 @@ class MainHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<PokemonModel>>(
+    return FutureBuilder<DataPageModel>(
         future: repositoryPokemon.getAllPokemons(page: 0),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -25,7 +25,7 @@ class MainHome extends StatelessWidget {
           }
           if (snapshot.connectionState == ConnectionState.done) {
             return ScreenAllPokemons(
-                list: snapshot.data!, repositoryPokemon: repositoryPokemon, /*  list: ['teste', "teste2"]  */);
+                data: snapshot.data!, repositoryPokemon: repositoryPokemon, /*  list: ['teste', "teste2"]  */);
           }
           if (snapshot.hasError) {
             return Center(

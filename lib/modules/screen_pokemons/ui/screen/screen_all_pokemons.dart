@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/models/data_page_model.dart';
 import 'package:pokedex/core/models/pokemon_model.dart';
 import 'package:pokedex/core/styles/custom_colors.dart';
 import 'package:pokedex/modules/common/repositories/repository_pokemon.dart';
@@ -6,10 +7,10 @@ import 'package:pokedex/modules/common/repositories/repository_pokemon.dart';
 class ScreenAllPokemons extends StatelessWidget {
   ScreenAllPokemons({
     Key? key,
-    required this.list,
+    required this.data,
     required this.repositoryPokemon,
   }) : super(key: key);
-  final List<PokemonModel> list;
+  final DataPageModel data;
   RepositoryPokemon repositoryPokemon;
 
   @override
@@ -32,11 +33,19 @@ class ScreenAllPokemons extends StatelessWidget {
             Container(
               height: 400,
               child: ListView.builder(
-                itemCount: list.length,
+                itemCount: data.pokemons?.length,
                 itemBuilder: (BuildContext context, int index) => Column(
                   children: [
-                    Text('Nome: ${list[index].name.toString()}'),
-                    Text('ID: ${list[index].id.toString()}'),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        color: Colors.amber,
+                        width: 200,
+                        height: 80,
+                        child: Column(children: [Text('Nome: ${data.pokemons?[index].name.toString()}'),
+                      Text('ID: ${data.pokemons?[index].id.toString()}'),]),),
+                    )
+                    
                     
                   ],
                 ),

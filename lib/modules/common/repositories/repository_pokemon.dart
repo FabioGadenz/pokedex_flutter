@@ -5,41 +5,33 @@ import 'package:http/http.dart' as http;
 import 'package:pokedex/core/models/pokemon_model.dart';
 
 class RepositoryPokemon {
- // int numero;
-
- /*  RepositoryPokemon({
-    required this.numero,
-  }); */
-
-  //Future DataPageModel getgetAllPokemons()
-
-   Future<List<PokemonModel>> getAllPokemons({required int page}) async {
+  Future<DataPageModel> getAllPokemons({required int page}) async {
     const qtdItems = 10;
-    Uri urlPagePokemons = Uri.parse(
-        'https://pokeapi.co/api/v2/pokemon?offset=0&limit=$qtdItems');
-    List<PokemonModel> list = [];
-    List urlPokemons = [];
-    DataPageModel dataPageModel = DataPageModel();
+    Uri urlPagePokemons =
+        Uri.parse('https://pokeapi.co/api/v2/pokemon?offset=10&limit=$qtdItems');
+    DataPageModel dataPage = DataPageModel();
+    List<PokemonModel> pokemon = [];
 
     try {
       final response = await http.get(urlPagePokemons);
       final jsonPokemonsbyPg =
           jsonDecode(response.body) as Map<String, dynamic>;
-      //final nrTotalPokemons = jsonPokemonsbyPg['count'] as int;
 
-      urlPokemons.add(DataPageModel.fromJson(jsonPokemonsbyPg));
-      dataPageModel = DataPageModel.fromJson(jsonPokemonsbyPg);
+      dataPage = DataPageModel.fromJson(jsonPokemonsbyPg);
 
       for (var i = 0; i < 10; i++) {
         final response2 =
-            await http.get(Uri.parse(dataPageModel.results![i].url.toString()));
-        final responseData = jsonDecode(response2.body) as Map<String, dynamic>;
-        list.add(PokemonModel.fromJson(responseData));
+            await http.get(Uri.parse(dataPage.results![i].url.toString()));
+
+        final responseDataPokemon =
+            jsonDecode(response2.body) as Map<String, dynamic>;
+        pokemon.add(PokemonModel.fromJson(responseDataPokemon));
       }
-      print(list.length);
-      return list;
+      dataPage.pokemons = pokemon;
+
+      return dataPage;
     } catch (e) {
       throw Exception('Erro ao carregar Informações');
     }
-  } 
+  }
 }
