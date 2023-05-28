@@ -1,11 +1,24 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
+
 class PokemonModel {
   int? height;
   int? id;
   String? name;
   List<Types>? types;
   Sprites? sprites;
+  List<Abilities>? abilities;
 
-  PokemonModel({this.height, this.id, this.name, this.types, this.sprites});
+  PokemonModel({
+    this.height,
+    this.id,
+    this.name,
+    this.types,
+    this.sprites,
+    this.abilities,
+  });
 
   PokemonModel.fromJson(Map<String, dynamic> json) {
     height = json['height'];
@@ -34,6 +47,7 @@ class PokemonModel {
     }
     return data;
   }
+
 }
 
 class Types {
@@ -135,6 +149,49 @@ class DreamWorld {
     final Map<String, dynamic> data =  Map<String, dynamic>();
     data['front_default'] = this.frontDefault;
     data['front_female'] = this.frontFemale;
+    return data;
+  }
+}
+class Abilities {
+  Ability? ability;
+  bool? isHidden;
+  int? slot;
+
+  Abilities({this.ability, this.isHidden, this.slot});
+
+  Abilities.fromJson(Map<String, dynamic> json) {
+    ability =
+        json['ability'] != null ? new Ability.fromJson(json['ability']) : null;
+    isHidden = json['is_hidden'];
+    slot = json['slot'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    if (this.ability != null) {
+      data['ability'] = this.ability!.toJson();
+    }
+    data['is_hidden'] = this.isHidden;
+    data['slot'] = this.slot;
+    return data;
+  }
+}
+
+class Ability {
+  String? name;
+  String? url;
+
+  Ability({this.name, this.url});
+
+  Ability.fromJson(Map<String, dynamic> json) {
+    name = json['name'];
+    url = json['url'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    data['url'] = this.url;
     return data;
   }
 }

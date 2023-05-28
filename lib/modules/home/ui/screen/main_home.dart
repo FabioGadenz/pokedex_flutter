@@ -1,10 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/models/data_page_model.dart';
-
 import 'package:pokedex/core/models/pokemon_model.dart';
 import 'package:pokedex/modules/common/repositories/repository_pokemon.dart';
-import 'package:pokedex/modules/screen_pokemons/ui/screen/carregando.dart';
+
 import 'package:pokedex/modules/screen_pokemons/ui/screen/screen_all_pokemons.dart';
 
 class MainHome extends StatelessWidget {
@@ -21,18 +20,27 @@ class MainHome extends StatelessWidget {
         future: repositoryPokemon.getAllPokemons(page: 0),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Carregando();
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  color: Colors.green,
+                ),
+              ),
+            );
           }
           if (snapshot.connectionState == ConnectionState.done) {
             return ScreenAllPokemons(
-                data: snapshot.data!, repositoryPokemon: repositoryPokemon, /*  list: ['teste', "teste2"]  */);
+                data: snapshot.data!, repositoryPokemon: repositoryPokemon, );
           }
           if (snapshot.hasError) {
-            return Center(
-              child: Text('Erro ao Carregar informações ${snapshot.error}'),
+            return Scaffold(
+              body: Center(
+                child: Text('Erro ao Carregar informações ${snapshot.error}'),
+              ),
             );
           }
-          return const Text('Tente atualizar novamente');
+          return const Scaffold(body: Center(child: Text('Tente atualizar novamente')));
         });
   }
 }

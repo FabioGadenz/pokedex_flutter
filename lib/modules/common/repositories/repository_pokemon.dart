@@ -8,7 +8,7 @@ class RepositoryPokemon {
   Future<DataPageModel> getAllPokemons({required int page}) async {
     const qtdItems = 10;
     Uri urlPagePokemons =
-        Uri.parse('https://pokeapi.co/api/v2/pokemon?offset=10&limit=$qtdItems');
+        Uri.parse('https://pokeapi.co/api/v2/pokemon?offset=0&limit=$qtdItems');
     DataPageModel dataPage = DataPageModel();
     List<PokemonModel> pokemon = [];
 
@@ -19,7 +19,7 @@ class RepositoryPokemon {
 
       dataPage = DataPageModel.fromJson(jsonPokemonsbyPg);
 
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < qtdItems; i++) {
         final response2 =
             await http.get(Uri.parse(dataPage.results![i].url.toString()));
 
