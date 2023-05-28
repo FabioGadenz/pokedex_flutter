@@ -1,8 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-
-import 'package:flutter/foundation.dart';
-
 import 'package:pokedex/core/models/pokemon_model.dart';
 
 class DataPageModel {
@@ -46,9 +43,8 @@ class DataPageModel {
     if (this.results != null) {
       data['results'] = this.results!.map((v) => v.toJson()).toList();
     }
-    data['pokemons'] = this.pokemons;
     if (this.pokemons != null) {
-      data['results'] = this.pokemons!.map((v) => v.toJson()).toList();
+      data['pokemons'] = this.pokemons!.map((v) => v.toJson()).toList();
     }
     return data;
   }
