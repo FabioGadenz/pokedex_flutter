@@ -1,16 +1,33 @@
-# pokedex
+# Pokedex
 
-A new Flutter project.
+Criado um aplicativo Dart/Flutter utilizando a API pública POKEAPI para realizar a busca de Pokemons e apresentação na tela.
 
-## Getting Started
+## Documentação
 
-This project is a starting point for a Flutter application.
+- Criado estutura inicial(Tela inicial e tela com detalhes);
+- Criado repository com acesso ao POKEMON API;
+- Bliblioteca de requisição utiliza foi o package http.
 
-A few resources to get you started if this is your first Flutter project:
+## Funcionalidades
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Tela inicial:
+Contem uma lista de 30 pokemons, mostrando nome e imagem em miniatura.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Ao tocar em um Pokémon da lista, o aplicativo navega para a tela de detalhes do Pokémon.
+
+Tela de detalhes do Pokémon:
+
+Exibe informações detalhadas sobre o Pokémon selecionado, como nome, tipos, número, peso, altura, habilidades e estatísticas.
+Também é mostrado uma imagem do Pokémon em tamanho maior.
+
+## Documentação da API
+
+https://pokeapi.co/
+
+## Melhorias
+
+- Necessário realizar a paginação para buscar outros Pokemons. Ficou limitado em 30 pois com uma quantidade grande a rotorno da API fica muito lento;
+- ALteração da cor baseado no tipo de pokemon na tela de detalhes de cada pokemon;
+- Organizar repository;
+- Organizar Style (Text e Colors);
+- Acertar nomenclaturas de peso e altura

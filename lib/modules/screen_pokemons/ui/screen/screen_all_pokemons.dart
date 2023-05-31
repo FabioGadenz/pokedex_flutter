@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:pokedex/core/models/data_page_model.dart';
-import 'package:pokedex/core/routes/routes_app.dart';
 import 'package:pokedex/core/styles/custom_colors.dart';
 import 'package:pokedex/core/styles/text_extension.dart';
 import 'package:pokedex/modules/common/repositories/repository_pokemon.dart';
@@ -41,7 +39,7 @@ class ScreenAllPokemons extends StatelessWidget {
  
 
             }),
-            icon: Icon(Icons.arrow_right),
+            icon: const Icon(Icons.arrow_right),
           ),
         ],
       ),
@@ -62,11 +60,9 @@ class ScreenAllPokemons extends StatelessWidget {
             padding: const EdgeInsets.all(2.0),
             child: Container(
               decoration: BoxDecoration(
-                color: Color.fromARGB(97, 215, 216, 218),
+                color: const Color.fromARGB(97, 215, 216, 218),
                 borderRadius: BorderRadius.circular(12),
               ),
-              // height: 110,
-              // width: 110,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
