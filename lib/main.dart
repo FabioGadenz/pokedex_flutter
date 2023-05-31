@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/modules/common/repositories/repository_pokemon.dart';
 
-import 'package:pokedex/modules/home/ui/screen/main_home.dart';
+import 'package:pokedex/modules/home/ui/main_home.dart';
 
 void main() {
   runApp(const MyApp());
