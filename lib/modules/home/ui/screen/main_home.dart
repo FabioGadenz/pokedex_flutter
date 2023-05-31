@@ -1,7 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:pokedex/core/models/data_page_model.dart';
-import 'package:pokedex/core/models/pokemon_model.dart';
 import 'package:pokedex/modules/common/repositories/repository_pokemon.dart';
 
 import 'package:pokedex/modules/screen_pokemons/ui/screen/screen_all_pokemons.dart';
