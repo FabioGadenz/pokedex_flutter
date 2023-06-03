@@ -36,9 +36,9 @@ class ScreenAllPokemons extends StatelessWidget {
           ),
           IconButton(
             onPressed: (() {
- 
-
-            }),
+              repositoryPokemon.getAllPokemons(url:data.next.toString());
+              
+             }),
             icon: const Icon(Icons.arrow_right),
           ),
         ],

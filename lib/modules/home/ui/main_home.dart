@@ -16,7 +16,7 @@ class MainHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<DataPageModel>(
-        future: repositoryPokemon.getAllPokemons(page: 0),
+        future: repositoryPokemon.getAllPokemons(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Scaffold(
