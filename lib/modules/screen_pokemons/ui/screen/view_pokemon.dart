@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:pokedex/core/models/pokemon_model.dart';
+import 'package:pokedex/core/styles/text_extension.dart';
 
 class ViewPokemon extends StatelessWidget {
   PokemonModel pokemon;
@@ -20,9 +21,10 @@ class ViewPokemon extends StatelessWidget {
               Flexible(
                 flex: 4,
                 child: Container(
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(167, 10, 154, 238),
-                    borderRadius: BorderRadius.only(
+                  decoration: BoxDecoration(
+                    color:
+                        getStatusColor(pokemon.types![0].type?.name.toString()),
+                    borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20)),
                   ),
@@ -36,14 +38,8 @@ class ViewPokemon extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${pokemon.name}",
-                              style: const TextStyle(
-                                fontFamily: 'Roboto',
-                                fontSize: 24,
-                                fontWeight: FontWeight.w500,
-                                letterSpacing: 0.3,
-                              ),
-                            ),
+                              "${pokemon.name}".toUpperCase(),
+                            ).titleName,
                             IconButton(
                                 onPressed: () =>
                                     Navigator.pop(context), // Get.back(),
@@ -76,12 +72,12 @@ class ViewPokemon extends StatelessWidget {
                               text: TextSpan(
                                 style: const TextStyle(
                                   fontSize: 14.0,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                                 children: <TextSpan>[
                                   const TextSpan(text: 'Weight: '),
                                   TextSpan(
-                                      text: pokemon.weight.toString(),
+                                      text: ('${pokemon.weight!.toInt() / 10} Kg' ).toString(),
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                 ],
@@ -91,12 +87,12 @@ class ViewPokemon extends StatelessWidget {
                               text: TextSpan(
                                 style: const TextStyle(
                                   fontSize: 14.0,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                                 children: <TextSpan>[
                                   const TextSpan(text: 'Height: '),
                                   TextSpan(
-                                      text: pokemon.height.toString(),
+                                      text: ('${pokemon.height!.toInt() /10 } m' ).toString(),
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold)),
                                 ],
@@ -124,19 +120,20 @@ class ViewPokemon extends StatelessWidget {
                               for (var i = 0;
                                   i < pokemon.abilities!.length;
                                   i++)
-                                Container(
-                                  decoration: BoxDecoration(
-                                    color: const Color.fromARGB(
-                                        255, 209, 208, 208),
-                                    borderRadius: BorderRadius.circular(50),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(4.0),
-                                    child: Text(
-                                        pokemon.abilities![i].ability!.name
-                                            .toString(),
-                                        style: const TextStyle(
-                                            fontWeight: FontWeight.bold)),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color:  getStatusColor(pokemon.types![0].type?.name.toString()),
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                                      child: Text(
+                                          pokemon.abilities![i].ability!.name
+                                              .toString(),
+                                          ).abilities,
+                                    ),
                                   ),
                                 ),
                             ],
@@ -183,14 +180,11 @@ class ViewPokemon extends StatelessWidget {
               children: [
                 Flexible(
                   flex: 3,
-                  child: Text(
-                    'ID: ${pokemon.order.toString()}',
-                    
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                                          fontWeight: FontWeight.bold)
-                  ),
+                  child: Text('ID: ${pokemon.order.toString()}',
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold)),
                 ),
                 Flexible(
                   flex: 6,
@@ -231,4 +225,33 @@ Widget loadImg(String url) {
       fit: BoxFit.cover,
     ),
   );
+}
+
+Color getStatusColor(String? color) {
+  switch (color) {
+    case 'grass':
+      return const Color.fromARGB(255, 12, 92, 14);
+    case 'fire':
+      return const Color.fromARGB(255, 223, 35, 2);
+    case 'poison':
+      return const Color.fromARGB(255, 79, 2, 143);
+    case 'electric':
+      return const Color.fromARGB(255, 202, 182, 1);
+    case 'ground':
+      return const Color.fromARGB(248, 73, 43, 5);
+    case 'fighting':
+      return const Color.fromARGB(248, 22, 14, 110);
+    case 'water':
+      return const Color.fromARGB(255, 6, 2, 245);
+    case 'ice':
+      return const Color.fromARGB(255, 3, 192, 250);
+    case 'flying':
+      return const Color.fromARGB(255, 147, 199, 248);
+    case 'psychic':
+      return const Color.fromARGB(255, 245, 73, 230);
+    case 'steel':
+      return const Color.fromARGB(255, 64, 64, 85);
+    default:
+      return const Color.fromARGB(255, 49, 49, 49);
+  }
 }

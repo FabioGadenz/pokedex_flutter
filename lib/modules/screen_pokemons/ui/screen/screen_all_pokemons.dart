@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:pokedex/core/models/data_page_model.dart';
 import 'package:pokedex/core/styles/custom_colors.dart';
 import 'package:pokedex/core/styles/text_extension.dart';
@@ -36,7 +36,7 @@ class ScreenAllPokemons extends StatelessWidget {
           ),
           IconButton(
             onPressed: (() {
-              repositoryPokemon.getAllPokemons(url:data.next.toString());
+              repositoryPokemon.getAllPokemons(pg: 5/* url:data.next.toString() */);
               
              }),
             icon: const Icon(Icons.arrow_right),
@@ -104,3 +104,4 @@ class ScreenAllPokemons extends StatelessWidget {
     );
   }
 }
+ */
