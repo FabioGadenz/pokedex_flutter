@@ -27,11 +27,9 @@ Também é mostrado uma imagem do Pokémon em tamanho maior.
 
 https://pokeapi.co/
 
-## Melhorias
+## Pendências
 
-- Necessário realizar a paginação para buscar outros Pokemons. Ficou limitado em 30 pois com uma quantidade grande a rotorno da API fica muito lento;
-- ALteração da cor baseado no tipo de pokemon na tela de detalhes de cada pokemon;
-- Organizar repository;
-- Organizar Style (Text e Colors);
-- Acertar nomenclaturas de peso e altura
+- Necessário realizar a paginação para buscar outros Pokemons. Ficou limitado em 30, pois com uma quantidade grande a rotorno da API fica muito lento;
+
+
 

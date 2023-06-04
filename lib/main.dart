@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // return MainHome(list: [],);
+  
     return MaterialApp(
       title: 'Lista de Pokemons',
       theme: ThemeData(primarySwatch: Colors.green,

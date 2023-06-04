@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 extension TextExtension on Text {
-  Text get titleName => Text(
+  Text get namePokemon => Text(
         data!,
         style: const TextStyle(
           fontSize: 14,
@@ -10,4 +10,22 @@ extension TextExtension on Text {
           fontStyle: FontStyle.normal,
         ),
       );
+       Text get titleName => Text(
+        data!,
+        style: const TextStyle(
+          fontSize: 26,
+          color: Color.fromARGB(255, 255, 255, 255),
+          fontWeight: FontWeight.w600,
+          fontStyle: FontStyle.normal,
+        ),
+      );
+        Text get abilities => Text(
+        data!,
+        style: const TextStyle(
+          fontSize: 14,
+          color: Color.fromARGB(255, 255, 255, 255),
+          fontWeight: FontWeight.w600,
+          fontStyle: FontStyle.normal,
+        ),
+      ); 
 }
