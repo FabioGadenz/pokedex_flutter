@@ -5,7 +5,7 @@ import 'package:pokedex/core/models/pokemon_model.dart';
 
 class RepositoryPokemon {
   Future<DataPageModel> getAllPokemons({String? url}) async {
-    const qtdItems = 30;
+    const qtdItems = 12;
 
     Uri urlPagePokemons = Uri.parse(
         url ?? 'https://pokeapi.co/api/v2/pokemon?offset=0&limit=$qtdItems');
@@ -13,8 +13,7 @@ class RepositoryPokemon {
     List<PokemonModel> pokemon = [];
 
     try {
-      final response = await http.get(
-          urlPagePokemons); 
+      final response = await http.get(urlPagePokemons);
       final jsonPokemonsbyPg =
           jsonDecode(response.body) as Map<String, dynamic>;
 
@@ -32,7 +31,8 @@ class RepositoryPokemon {
 
       return dataPage;
     } catch (e) {
-      throw Exception('Erro ao carregar Informações!');
+      print('Erro ao carregar Informações!');
+      return dataPage;
     }
   }
 }

@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
 import 'package:pokedex/core/models/pokemon_model.dart';
 import 'package:pokedex/core/styles/text_extension.dart';
 
+// ignore: must_be_immutable
 class ViewPokemon extends StatelessWidget {
   PokemonModel pokemon;
   ViewPokemon({
