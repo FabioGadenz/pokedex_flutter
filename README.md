@@ -1,6 +1,8 @@
+
 # Pokedex
 
 Criado um aplicativo Dart/Flutter utilizando a API pública POKEAPI para realizar a busca de Pokemons e apresentação na tela.
+
 
 ## Documentação
 
@@ -23,7 +25,3 @@ Também é mostrado uma imagem do Pokémon em tamanho maior.
 ## Documentação da API
 
 https://pokeapi.co/
-
-
-
-
