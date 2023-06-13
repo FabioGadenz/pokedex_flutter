@@ -4,16 +4,16 @@ Criado um aplicativo Dart/Flutter utilizando a API pública POKEAPI para realiza
 
 ## Documentação
 
-- Criado estutura inicial(Tela inicial e tela com detalhes);
+- Estutura inicial(Tela inicial e tela com detalhes);
 - Criado repository com acesso ao POKEMON API;
 - Bliblioteca de requisição utiliza foi o package http.
 
 ## Funcionalidades
 
 Tela inicial:
-Contem uma lista de 30 pokemons, mostrando nome e imagem em miniatura.
+Contem uma lista de pokemons, mostrando nome e imagem em miniatura.
 
-Ao tocar em um Pokémon da lista, o aplicativo navega para a tela de detalhes do Pokémon.
+Ao tocar em um Pokemon da lista, o aplicativo navega para a tela de detalhes do Pokemon.
 
 Tela de detalhes do Pokémon:
 
@@ -24,8 +24,6 @@ Também é mostrado uma imagem do Pokémon em tamanho maior.
 
 https://pokeapi.co/
 
-## Pendências
 
-- Necessário realizar a paginação para buscar outros Pokemons. Ficou limitado em 30, pois com uma quantidade grande a rotorno da API fica muito lento;
 
 

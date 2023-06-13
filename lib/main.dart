@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:pokedex/modules/common/repositories/repository_pokemon.dart';
-
+import 'package:pokedex/modules/common/controller/controller_pokemon.dart';
 import 'package:pokedex/modules/home/ui/main_home.dart';
 
 void main() {
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Lista de Pokemons',
       theme: ThemeData(primarySwatch: Colors.green,
       ),
-      home:  MainHome(repositoryPokemon: RepositoryPokemon(),),
+      home:  MainHome(controllerPokemon:  ControllerPokemon(), ),
       
     );
   }
